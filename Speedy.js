@@ -5,9 +5,17 @@ deferredPrompt = e;
 showInstallPromotion();
 });
 
-if('serviceWorker' in navigator){
-alert("done");
-navigator.serviceWorker.register('SpeedyWorker.js');
+if ('serviceWorker' in navigator) {
+alert("supported");
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('/sw.js').then(function(registration) {
+      // Regiion was successful
+      alert('ServiceWorker registration successful with scope: ', registration.scope);
+    }, function(err) {
+      // registration failed :(
+      alert('ServiceWorker registration failed: ', err);
+    });
+  });
 }
 
 document.getElementById("v").src="Update.js?version="+Date.now();
