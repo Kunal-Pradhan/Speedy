@@ -1,13 +1,7 @@
 self.addEventListener('install', (e) => {
 e.waitUntil(
 caches.open('Speedie').then((cache) => cache.addAll([
-'Speedy.js',
-'Speedy.html',
-'Speedy.css',
-'jQuery.js',
-'Product.ttf',
-'Icons.woff2'
-])),
+'/Speedy/'
 );
 });
 self.addEventListener('fetch', (e) => {
